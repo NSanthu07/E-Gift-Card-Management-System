@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('/static/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
-            background-size: cover; /* This ensures the background image covers the entire screen */
+            background-image: url('/static/image.jpg');
+            background-size: cover;
             margin: 0;
             padding: 0;
             display: flex;
@@ -28,11 +28,11 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            display: none; /* Hide all forms by default */
+            display: none; 
         }
 
         form.active {
-            display: block; /* Show the active form */
+            display: block;
         }
 
         h2 {
@@ -74,7 +74,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1; /* Added z-index to ensure the navigation bar stays on top */
+            z-index: 1;
         }
 
         nav a {
@@ -100,9 +100,9 @@
             color: white;
             text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
             letter-spacing: -1px;
-            text-align: center; /* Adjusted text alignment to left */
+            text-align: center; 
             margin-top: 10px;
-            margin-left: 10px; /* Added left margin */
+            margin-left: 10px;
         }
 
         .error-message {
@@ -162,7 +162,7 @@
     </div>
 
     <script>
-        // JavaScript function to show/hide signup forms
+        
         function showForm(formType) {
             const userForm = document.querySelector('.user-signin');
             const merchantForm = document.querySelector('.merchant-signin');

@@ -8,8 +8,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('/static/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
-            background-size: cover; /* This ensures the background image covers the entire screen */
+            background-image: url('/static/image.jpg');
+            background-size: cover;
             margin: 0;
             padding: 0;
             display: flex;
@@ -75,7 +75,6 @@
             background-color: #ddd;
         }
 
-        /* Add new styles for the navigation bar */
         nav {
             background-color: #333;
             overflow: hidden;
@@ -84,7 +83,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1; /* Added z-index to ensure the navigation bar stays on top */
+            z-index: 1; 
         }
 
         nav a {
@@ -138,40 +137,34 @@
             {% endif %}
         </div>
 
-        <!-- Promotion details container -->
         <div class="promotion-details-container">
             <h2>Promotion Details</h2>
             <div class="promotion-details" id="promotion-details">
-                <!-- Promotion details will be displayed here -->
             </div>
         </div>
     </div>
 
     <script>
-        // jQuery is used for simplicity, make sure it is included in your project
         $(document).ready(function () {
-            // Handle click on a gift card
             $('.gift-card').click(function () {
-                // Get the card ID of the clicked gift card
                 var cardId = $(this).data('card-id');
 
-                // Call a function to fetch and display promotions details
                 fetchAndDisplayPromotions(cardId);
             });
         });
 
         function fetchAndDisplayPromotions(cardId) {
-            // Make an AJAX request to fetch promotions details based on the card ID
+            
             $.ajax({
                 type: 'GET',
-                url: '/get_promotions/' + cardId,  // Update the URL as needed
+                url: '/get_promotions/' + cardId, 
                 success: function (data) {
-                    // Display the promotions details in the side container
+                    
                     $('#promotion-details').html(data);
                     $('.promotion-details').show();
                 },
                 error: function () {
-                    // Handle errors
+                    
                     console.log('Error fetching promotions details.');
                 }
             });

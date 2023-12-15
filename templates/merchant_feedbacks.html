@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedbacks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+            background-size: cover; /* This ensures the background image covers the entire screen */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .feedbacks-list {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .feedback-item {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="feedbacks-list">
+            <h2>User Feedbacks</h2>
+            {% if feedbacks %}
+                {% for feedback in feedbacks %}
+                    <div class="feedback-item">
+                        <p><strong>Feedback ID:</strong> {{ feedback['feedback_id'] }}</p>
+                        <p><strong>Card ID:</strong> {{ feedback['card_id'] }}</p>
+                        <p><strong>Rating:</strong> {{ feedback['rating'] }}</p>
+                        <p><strong>Comments:</strong> {{ feedback['comments'] }}</p>
+                        <p><strong>Feedback Date:</strong> {{ feedback['feedback_date'] }}</p>
+                        <p><strong>User Name:</strong> {{ feedback['user_name'] }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No feedbacks available.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

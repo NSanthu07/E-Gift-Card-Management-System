@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Gift Cards</title>
+    <style>
+        /* Add your existing styles or customize as needed */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+            background-size: cover; /* This ensures the background image covers the entire screen */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .dashboard-options {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        select, button {
+            padding: 10px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-options">
+            <h2>Purchase Gift Cards</h2>
+            <form method="post" action="{{ url_for('purchase_gift_cards') }}">
+                <label for="selected-card">Select Gift Card:</label>
+                <select id="selected-card" name="selected-card" required>
+                    {% for card in gift_cards %}
+                        <option value="{{ card['card_id'] }}">{{ card['card_id'] }} - ${{ card['card_price'] }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Purchase Gift Card</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add this JavaScript code to update the selected-card value -->
+    <script>
+        document.getElementById('selected-card').addEventListener('change', function() {
+            document.getElementById('selected-card').value = this.value;
+        });
+    </script>
+</body>
+</html>

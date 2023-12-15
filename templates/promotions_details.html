@@ -1,0 +1,12 @@
+<!-- promotions_details.html -->
+{% for promotion in promotions %}
+    <div>
+        <p>Promotion ID: {{ promotion.promotion_id }}</p>
+        <p>Description: {{ promotion.description }}</p>
+        <p>Discount Amount: ${{ promotion.discount_amount }}</p>
+        <p>Validity Period: {{ promotion.validity_period }}</p>
+    </div>
+{% endfor %}
+{% if not promotions %}
+    <p>No promotions available for this card.</p>
+{% endif %}

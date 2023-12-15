@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Gift Card Management System - Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+            background-size: cover; /* This ensures the background image covers the entire screen */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: none; /* Hide all forms by default */
+        }
+
+        form.active {
+            display: block; /* Show the active form */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Add new styles for the navigation bar */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            border-radius: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1; /* Added z-index to ensure the navigation bar stays on top */
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        h1 {
+            font-size: 27px;
+            color: white;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+            letter-spacing: -1px;
+            text-align: center; /* Adjusted text alignment to left */
+            margin-top: 10px;
+            margin-left: 10px; /* Added left margin */
+        }
+
+        .error-message {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a onclick="showForm('user-signin')">User Sign In</a>
+        <a onclick="showForm('merchant-signin')">Merchant Sign In</a>
+        <h1>Welcome to E-Gift Card Management System</h1>
+    </nav>
+
+    <div class="container">
+        {% if user_error %}
+        <p class="error-message">{{ user_error }}</p>
+        {% endif %}
+
+        <form class="user-signin active" action="{{ url_for('signin') }}" method="post">
+            <h2>User Sign In</h2>
+            <label for="user-email">Email ID:</label>
+            <input type="email" id="user-email" name="user-email" required>
+
+            <label for="user-password">Password:</label>
+            <input type="password" id="user-password" name="user-password" required>
+
+            <input type="hidden" name="user-signin" value="1">
+            <input type="submit" value="Sign In">
+
+            <p>Don't have an account? <a href="{{ url_for('index') }}">Sign up</a></p>
+        </form>
+
+        {% if merchant_error %}
+        <p class="error-message">{{ merchant_error }}</p>
+        {% endif %}
+
+        <form class="merchant-signin" action="/signin" method="post">
+            <h2>Merchant Sign In</h2>
+            <label for="merchant-email">Email ID:</label>
+            <input type="email" id="merchant-email" name="merchant-email" required>
+
+            <label for="merchant-password">Password:</label>
+            <input type="password" id="merchant-password" name="merchant-password" required>
+
+            <input type="hidden" name="merchant-signin" value="1">
+            <input type="submit" value="Sign In">
+
+            <p>Don't have an account? <a href="{{ url_for('index') }}">Sign up</a></p>
+        </form>
+        
+    </div>
+
+    <script>
+        // JavaScript function to show/hide signup forms
+        function showForm(formType) {
+            const userForm = document.querySelector('.user-signin');
+            const merchantForm = document.querySelector('.merchant-signin');
+    
+            if (formType === 'user-signin') {
+                userForm.classList.add('active');
+                merchantForm.classList.remove('active');
+            } else if (formType === 'merchant-signin') {
+                userForm.classList.remove('active');
+                merchantForm.classList.add('active');
+            }
+        }
+    </script>
+    
+</body>
+</html>

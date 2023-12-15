@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Gift Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+            background-size: cover; /* This ensures the background image covers the entire screen */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #ddd;
+        }
+
+        /* Add new styles for the navigation bar */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            border-radius: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1; /* Added z-index to ensure the navigation bar stays on top */
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('merchant_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('created_gift_cards') }}">Created Gift Cards</a>
+        <a href="{{ url_for('signin') }}">Sign Out</a>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Create Gift Cards</h2>
+            <form method="post" action="{{ url_for('create_gift_cards') }}">
+                <label for="card-id">Card ID:</label>
+                <input type="text" id="card-id" name="card-id" required>
+
+                <label for="card-price">Card Price:</label>
+                <input type="text" id="card-price" name="card-price" required>
+
+                <label for="discount-amount">Discount Amount:</label>
+                <input type="text" id="discount-amount" name="discount-amount" required>
+
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="date" id="expiry-date" name="expiry-date" required>
+
+                <label for="activation-date">Activation Date:</label>
+                <input type="date" id="activation-date" name="activation-date" required>
+
+                <button type="submit">Create Gift Cards</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

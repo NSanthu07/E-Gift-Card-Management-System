@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... (your existing head content) ... -->
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>E-Gift Card Management System - Sign Up</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('/static/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
-            background-size: cover; /* This ensures the background image covers the entire screen */
+            background-image: url('/static/image.jpg');
+            background-size: cover; 
             margin: 0;
             padding: 0;
             display: flex;
@@ -21,7 +20,7 @@
         .container {
             max-width: 600px;
             margin: auto;
-            margin-top: 50px; /* Added margin to move the content lower */
+            margin-top: 50px; 
         }
 
         form {
@@ -70,7 +69,6 @@
             display: block;
         }
 
-        /* Add new styles for the navigation bar */
         nav {
             background-color: #333;
             overflow: hidden;
@@ -79,7 +77,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1; /* Added z-index to ensure the navigation bar stays on top */
+            z-index: 1; 
         }
 
         nav a {
@@ -104,9 +102,9 @@
             color: white;
             text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
             letter-spacing: -1px;
-            text-align: center; /* Adjusted text alignment to left */
+            text-align: center; 
             margin-top: 10px;
-            margin-left: 10px; /* Added left margin */
+            margin-left: 10px; 
         }
 
         .error-message {
@@ -136,11 +134,11 @@
 
         <form class="user-signup active" action="{{ url_for('signup') }}" method="post">
             <h2>User Sign Up</h2>
-            <!-- ... (your existing form fields) ... -->
+           
             <label for="user-id">User ID:</label>
             <input type="text" id="user-id" name="user-id" required>
 
-            <!-- ... (Other user signup form fields) -->
+          
             <label for="user-name">User Name:</label>
             <input type="text" id="user-name" name="user-name" required>
 
@@ -171,11 +169,11 @@
 
         <form class="merchant-signup" action="/signup" method="post">
             <h2>Merchant Sign Up</h2>
-            <!-- ... (your existing form fields) ... -->
+            
             <label for="merchant-id">Merchant ID:</label>
             <input type="text" id="merchant-id" name="merchant-id" required>
 
-            <!-- ... (Other merchant signup form fields) -->
+            
             <label for="merchant-name">Merchant Name:</label>
             <input type="text" id="merchant-name" name="merchant-name" required>
 
@@ -198,8 +196,7 @@
     </div>
 
     <script>
-        // ... (your existing script content) ...
-        // JavaScript function to show/hide signup forms
+        
         function showForm(formType) {
             const userForm = document.querySelector('.user-signup');
             const merchantForm = document.querySelector('.merchant-signup');
